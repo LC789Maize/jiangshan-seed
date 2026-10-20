@@ -29,25 +29,25 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2008", title: "起步", text: "在山东济南成立第一家县级种子站，代理销售玉米、小麦种子。" },
-  { year: "2012", title: "自育第一品种", text: "良纯麦 3 号通过省级审定，开始自主育种。" },
-  { year: "2016", title: "建基地", text: "在甘肃张掖建立第一个规范化制种基地，实现制种自主可控。" },
-  { year: "2019", title: "南繁加代", text: "入驻海南南繁基地，育种周期由每年一代提升至两代。" },
-  { year: "2022", title: "育繁推一体化", text: "获批国家级育繁推一体化种子企业资质，品种覆盖四大作物。" },
-  { year: "2025", title: "数字服务", text: "上线品种适配查询与田间服务记录系统，服务种植户超 30 万。" },
+  { year: "2013", title: "起步", text: "在石家庄栾城区成立种子经营部，代理销售玉米、小麦种子。" },
+  { year: "2016", title: "扎根冀中南", text: "服务范围覆盖石家庄、邢台、邯郸，建立稳定的乡镇经销网络。" },
+  { year: "2019", title: "自有品系", text: "启动五紫特色玉米品系选育，形成根紫、秆紫、叶鞘紫、花丝紫、苞叶紫的稳定材料。" },
+  { year: "2022", title: "引种备案", text: "陆续完成民泰 1T、鲁单系列等品种的河北引种备案，品种结构进一步完善。" },
+  { year: "2024", title: "五紫成系列", text: "良纯七八九、紫竹竿、五紫战神形成粮用、青贮、升级款三条产品线。" },
+  { year: "2026", title: "一年两熟方案", text: "推出早顿麦衔接夏播玉米的整套轮作方案，把冀中南光温资源用足。" },
 ];
 
 const team = [
-  { name: "育种中心", text: "32 名科研人员，其中高级职称 11 人，负责玉米、水稻、小麦、大豆四大作物育种。" },
-  { name: "制种与加工", text: "甘肃、新疆、江苏三地制种基地 4.2 万亩，配套种子加工线 3 条，年加工能力 1.2 万吨。" },
-  { name: "农技服务", text: "40 余名农技顾问，覆盖黄淮海 68 个重点县，年开展田间观摩与培训 200 余场。" },
+  { name: "五紫特色玉米品系", text: "自主选育的五紫系列，根、秆、叶鞘、花丝、苞叶五紫齐全，抗倒耐密，是公司粮用与青贮产品线的基础。" },
+  { name: "引种备案", text: "民泰 1T、鲁单 221、鲁单 226 等品种已完成河北引种备案，审定区域、备案编号均如实标注。" },
+  { name: "一年两熟配套", text: "早顿麦早熟腾茬，衔接良纯七八九、紫竹竿等夏播玉米，形成适配冀中南的完整轮作方案。" },
 ];
 
 const AboutPage: NextPage = () => {
   return (
     <Layout
       title="公司介绍"
-      description={`${site.name}成立于 ${site.founded} 年，是集育种、制种、加工、推广于一体的种业企业，主营玉米、水稻、小麦、大豆优良品种。`}
+      description={`${site.name}位于石家庄栾城区，专注特色玉米、优质小麦的选育、引种备案、种子加工与推广，适配河北中南部一年两熟种植模式。`}
       image="/images/about/company.jpg"
     >
       {/* Hero */}
@@ -59,7 +59,7 @@ const AboutPage: NextPage = () => {
           </p>
           <div className="mt-5 grid gap-8 lg:grid-cols-12 lg:items-end">
             <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:col-span-7 lg:text-[2.9rem]">
-              十七年，只做一件事：
+              十三年，只做一件事：
               <span className="text-seed-700">把种子做好</span>
             </h1>
             <p className="text-sm leading-7 text-ink/60 sm:text-base lg:col-span-5">
@@ -86,9 +86,9 @@ const AboutPage: NextPage = () => {
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">公司简介</h2>
             <div className="mt-5 space-y-4 text-sm leading-7 text-ink/70 sm:text-base sm:leading-8">
               <p>
-                江山科技总部位于山东济南，在甘肃张掖、新疆昌吉、江苏盐城设有制种基地，
-                在海南乐东建有南繁育种站。公司主营玉米、水稻、小麦、大豆四大作物种子，
-                现有 26 个通过国家或省级审定的品种，累计推广面积 1800 万亩。
+                河北江山生物科技基地位于石家庄市栾城区，专注特色玉米与优质小麦的选育、
+                引种备案、种子加工与推广。公司现有 8 个主推品种，其中 6 个玉米、2 个小麦，
+                适配河北中南部大田一年两熟种植模式。
               </p>
               <p>
                 我们相信，品种的价值最终要落到种植户的收成上。因此从组合配制开始，
@@ -102,10 +102,10 @@ const AboutPage: NextPage = () => {
             </div>
             <dl className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {[
-                ["26", "审定品种"],
-                ["1800万", "推广面积（亩）"],
-                ["4.2万", "制种基地（亩）"],
-                ["30万+", "服务农户"],
+                ["8", "主推品种"],
+                ["5 紫", "自有玉米品系"],
+                ["2", "早熟小麦品种"],
+                ["1 年", "两熟方案"],
               ].map(([v, l]) => (
                 <div key={l} className="rounded-xl border border-line bg-white px-4 py-4">
                   <dd className="text-xl font-semibold text-seed-800">{v}</dd>
@@ -168,7 +168,7 @@ const AboutPage: NextPage = () => {
             <div className="mt-6 overflow-hidden rounded-2xl">
               <img
                 src={asset("/images/about/research.jpg")}
-                alt="种子发芽试验与育苗盘"
+                alt="玉米品种田间观察与考种"
                 width={800}
                 height={600}
                 loading="lazy"
@@ -191,7 +191,7 @@ const AboutPage: NextPage = () => {
             <div className="mt-6 rounded-2xl bg-seed-800 p-6 text-white sm:p-8">
               <h3 className="text-lg font-semibold">想了解具体品种？</h3>
               <p className="mt-2 text-sm leading-6 text-white/65">
-                我们有 26 个审定品种，覆盖玉米、水稻、小麦、大豆。按作物筛选，或直接联系我们。
+                我们有 8 个主推品种，覆盖粮用玉米、青贮玉米与早熟小麦。按作物筛选，或直接联系我们。
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link href="/varieties" className="btn-light group !px-5 !py-2.5">

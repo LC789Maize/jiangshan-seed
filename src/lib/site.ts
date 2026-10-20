@@ -3,10 +3,10 @@
  */
 export const site = {
   name: "江山科技",
-  legalName: "江山生物科技有限公司",
+  legalName: "河北江山生物科技有限公司",
   slogan: "一粒好种，一季好收",
   description:
-    "江山科技专注玉米、小麦、水稻、大豆等农作物优良品种的选育、繁育与推广，为种植户提供适配不同生态区的品种与配套栽培方案。",
+    "河北江山生物科技专注特色玉米、优质小麦的选育、引种备案、种子加工与推广，基地设于石家庄栾城区，适配河北中南部大田一年两熟种植模式。",
   // CI 构建时会注入 NEXT_PUBLIC_SITE_URL；本地开发用下面这个占位值。
   // 仓库改名后无需改这里，GitHub Actions 会自动按新仓库名注入。
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://lc789maize.github.io/jiangshan-seed",
@@ -15,18 +15,18 @@ export const site = {
   mobile: "138-0000-0000",
   email: "bbw8000000@gmail.com",
   address: "石家庄市栾城区裕翔街165号（未来科技城2区13号楼20B01栋)",
-  postcode: "250100",
+  postcode: "051430",
   workTime: "周一至周六 8:30–17:30",
-  icp: "鲁ICP备00000000号-1",
-  founded: "2008",
+  icp: "冀ICP备00000000号-1",
+  founded: "2013",
   keywords: [
     "种业公司",
     "玉米种子",
     "小麦种子",
-    "水稻种子",
-    "大豆种子",
-    "优良品种",
-    "江山科技",
+    "青贮玉米",
+    "良种",
+    "河北种业",
+    "江山生物科技",
   ],
 };
 

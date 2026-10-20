@@ -189,7 +189,7 @@ const ContactPage: NextPage = () => {
                     <input
                       id="region"
                       name="region"
-                      placeholder="如：山东德州齐河县"
+                      placeholder="如：石家庄市栾城区"
                       className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white"
                     />
                   </div>
@@ -204,11 +204,10 @@ const ContactPage: NextPage = () => {
                       className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm text-ink outline-none transition-colors focus:border-seed-400 focus:bg-white"
                     >
                       <option value="">请选择</option>
-                      <option value="玉米">玉米</option>
-                      <option value="水稻">水稻</option>
+                      <option value="粮用玉米">粮用玉米</option>
+                      <option value="青贮玉米">青贮玉米</option>
                       <option value="小麦">小麦</option>
-                      <option value="大豆">大豆</option>
-                      <option value="多作物/其他">多作物 / 其他</option>
+                      <option value="多作物/轮作方案">多作物 / 轮作方案</option>
                     </select>
                   </div>
                   <div className="sm:col-span-2">

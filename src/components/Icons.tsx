@@ -85,8 +85,8 @@ export const ArrowIcon = (p: IconProps) => (
 );
 
 export const stats: { value: string; label: string; icon: ComponentType<IconProps> }[] = [
-  { value: "26", label: "审定品种", icon: SproutIcon },
-  { value: "1800", label: "累计推广面积（万亩）", icon: FieldIcon },
-  { value: "30万+", label: "服务种植户", icon: ShieldIcon },
-  { value: "6", label: "科研育种基地", icon: LabIcon },
+  { value: "8", label: "主推品种", icon: SproutIcon },
+  { value: "5 紫", label: "自有玉米品系", icon: FieldIcon },
+  { value: "2", label: "早熟小麦品种", icon: ShieldIcon },
+  { value: "1 年", label: "两熟配套方案", icon: LabIcon },
 ];

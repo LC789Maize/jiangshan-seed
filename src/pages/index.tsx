@@ -25,30 +25,30 @@ interface HomeProps {
 const advantages = [
   {
     icon: SproutIcon,
-    title: "自有育种体系",
-    text: "在山东、海南、甘肃布局育种与南繁基地，年配制组合 3000 余份，持续输出适配不同生态区的新品种。",
+    title: "自有五紫品系",
+    text: "自主选育五紫特色玉米品系，根、秆、叶鞘、花丝、苞叶五紫齐全，抗倒耐密，适配冀中南一年两熟。",
   },
   {
     icon: ShieldIcon,
-    title: "全程质量控制",
-    text: "从亲本提纯、制种田隔离到加工包衣，18 道工序检测，种子发芽率与纯度高于国家标准。",
+    title: "引种备案规范",
+    text: "自有品种自主试验报审，引进品种全部完成河北引种备案，种植区域与审定信息如实标注。",
   },
   {
     icon: LabIcon,
     title: "配套栽培方案",
-    text: "每个品种配一份本地化栽培要点，联合农技部门开展田间观摩与培训，让好品种种出好收成。",
+    text: "每个品种配一份冀中南本地化栽培要点，关键生育期下田指导，让好品种种出好收成。",
   },
   {
     icon: FieldIcon,
-    title: "区域化服务",
-    text: "黄淮海、东北、长江中下游三大服务区，40 余名农技顾问下沉到县，按需提供田间指导。",
+    title: "一年两熟方案",
+    text: "早熟小麦衔接夏播玉米，从品种搭配到播期衔接给出整套方案，把两季光温资源用足。",
   },
 ];
 
 const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
   return (
     <Layout
-      title={`${site.name} - ${site.slogan}｜玉米水稻小麦大豆优良品种`}
+      title={`${site.name} - ${site.slogan}｜冀中南玉米小麦良种`}
       description={site.description}
       absoluteTitle
       image="/images/hero/hero-field.jpg"
@@ -58,7 +58,7 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
         <div className="absolute inset-0 -z-10">
           <img
             src={asset("/images/hero/hero-field.jpg")}
-            alt="黄淮海高标准农田航拍"
+            alt="冀中南高标准农田航拍"
             width={2000}
             height={855}
             fetchPriority="high"
@@ -82,8 +82,8 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-8 text-white/80 sm:text-lg">
-              {site.name}专注玉米、水稻、小麦、大豆优良品种的选育与推广。
-              26 个审定品种，累计推广 1800 万亩，让每一块地都种上合适的种子。
+              {site.name}专注特色玉米与优质小麦的选育、引种备案与推广。
+              五紫系列玉米 + 引种备案品种，适配河北中南部一年两熟种植模式。
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -145,7 +145,7 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
 
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl border border-line bg-white/60 px-5 py-4 text-xs text-ink/55">
           <span className="font-semibold text-ink/70">按作物查找：</span>
-          {["玉米", "水稻", "小麦", "大豆"].map((c) => (
+          {["玉米", "小麦"].map((c) => (
             <Link
               key={c}
               href={`/varieties?crop=${encodeURIComponent(c)}`}
@@ -165,7 +165,7 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
             <div className="overflow-hidden rounded-3xl">
               <img
                 src={asset("/images/about/company.jpg")}
-                alt="江山科技科研人员在田间观察小麦长势"
+                alt="江山科技科研人员在田间观察玉米长势"
                 width={800}
                 height={600}
                 loading="lazy"
@@ -174,11 +174,11 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
             </div>
             <div className="absolute -bottom-6 -right-2 hidden w-56 rounded-2xl border border-line bg-cream p-5 shadow-soft sm:block lg:-right-6">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-seed-600">
-                科研投入
+                自主品系
               </p>
-              <p className="mt-2 text-3xl font-semibold text-ink">8.6%</p>
+              <p className="mt-2 text-3xl font-semibold text-ink">5 紫</p>
               <p className="mt-1 text-xs leading-5 text-ink/55">
-                年研发投入占营业收入比重，连续 5 年高于行业均值
+                根紫、秆紫、叶鞘紫、花丝紫、苞叶紫，自有特色玉米品系
               </p>
             </div>
           </div>
@@ -186,15 +186,15 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
           <div className="order-1 lg:order-2">
             <SectionHeading
               eyebrow="关于江山"
-              title="十七年，只做一件事：把种子做好"
-              description="从 2008 年成立第一家县级种子站，到今天覆盖黄淮海、东北与长江中下游的育繁推一体化企业，我们始终围绕一个朴素的目标——让种植户少走弯路。"
+              title="十三年，只做一件事：把种子做好"
+              description="从石家庄栾城的一家种子站起步，到今天集选育、引种备案、加工、推广于一体，我们始终围绕一个朴素的目标——让冀中南的种植户少走弯路。"
             />
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
               {[
-                "国家级育繁推一体化资质",
-                "6 个自有育种与试验基地",
-                "26 个通过审定品种",
-                "40+ 名一线农技顾问",
+                "自有五紫特色玉米品系",
+                "8 个主推品种（6 玉米 2 小麦）",
+                "引种备案品种手续齐全",
+                "冀中南一年两熟配套方案",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-2.5 text-sm text-ink/75">
                   <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-seed-600" />

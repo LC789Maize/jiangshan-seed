@@ -34,8 +34,8 @@ const VarietiesPage: NextPage<Props> = ({ all }) => {
   return (
     <Layout
       title="品种中心"
-      description={`${site.name}审定品种列表：玉米、水稻、小麦、大豆。查看每个品种的生育期、审定编号、适宜区域、产量表现与栽培要点。`}
-      image="/images/varieties/corn-958.jpg"
+      description={`${site.name}品种列表：粮用玉米、青贮玉米、早熟小麦。查看每个品种的生育期、审定或备案编号、适宜区域、产量表现与栽培要点。`}
+      image="/images/varieties/liangchun-789.jpg"
     >
       {/* 页头 */}
       <section className="border-b border-line bg-white">
@@ -48,8 +48,8 @@ const VarietiesPage: NextPage<Props> = ({ all }) => {
             <div className="max-w-2xl">
               <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">品种中心</h1>
               <p className="mt-3 text-sm leading-7 text-ink/60 sm:text-base">
-                共 {all.length} 个审定品种，覆盖玉米、水稻、小麦、大豆。按作物筛选，或搜索品种名称、
-                适宜区域。所有信息依据审定公告整理，具体以包装标签为准。
+                共 {all.length} 个主推品种，覆盖粮用玉米、青贮玉米与早熟小麦。按作物筛选，或搜索品种名称、
+                适宜区域。自有品系与引种备案品种均如实标注，具体以包装标签为准。
               </p>
             </div>
             <div className="w-full lg:w-72">
