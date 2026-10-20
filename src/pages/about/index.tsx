@@ -30,7 +30,7 @@ const values = [
 
 const milestones = [
   { year: "2008", title: "起步", text: "在山东济南成立第一家县级种子站，代理销售玉米、小麦种子。" },
-  { year: "2012", title: "自育第一品种", text: "青禾麦 3 号通过省级审定，开始自主育种。" },
+  { year: "2012", title: "自育第一品种", text: "良纯麦 3 号通过省级审定，开始自主育种。" },
   { year: "2016", title: "建基地", text: "在甘肃张掖建立第一个规范化制种基地，实现制种自主可控。" },
   { year: "2019", title: "南繁加代", text: "入驻海南南繁基地，育种周期由每年一代提升至两代。" },
   { year: "2022", title: "育繁推一体化", text: "获批国家级育繁推一体化种子企业资质，品种覆盖四大作物。" },
@@ -76,7 +76,7 @@ const AboutPage: NextPage = () => {
           <div className="overflow-hidden rounded-3xl">
             <img
               src={asset("/images/about/company.jpg")}
-              alt="青禾种业科研人员在小麦田间"
+              alt="江山科技科研人员在小麦田间"
               width={800}
               height={600}
               className="h-full w-full object-cover"
@@ -86,7 +86,7 @@ const AboutPage: NextPage = () => {
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">公司简介</h2>
             <div className="mt-5 space-y-4 text-sm leading-7 text-ink/70 sm:text-base sm:leading-8">
               <p>
-                青禾种业总部位于山东济南，在甘肃张掖、新疆昌吉、江苏盐城设有制种基地，
+                江山科技总部位于山东济南，在甘肃张掖、新疆昌吉、江苏盐城设有制种基地，
                 在海南乐东建有南繁育种站。公司主营玉米、水稻、小麦、大豆四大作物种子，
                 现有 26 个通过国家或省级审定的品种，累计推广面积 1800 万亩。
               </p>

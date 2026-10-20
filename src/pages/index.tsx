@@ -165,7 +165,7 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
             <div className="overflow-hidden rounded-3xl">
               <img
                 src={asset("/images/about/company.jpg")}
-                alt="青禾种业科研人员在田间观察小麦长势"
+                alt="江山科技科研人员在田间观察小麦长势"
                 width={800}
                 height={600}
                 loading="lazy"
@@ -185,7 +185,7 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
 
           <div className="order-1 lg:order-2">
             <SectionHeading
-              eyebrow="关于青禾"
+              eyebrow="关于江山"
               title="十七年，只做一件事：把种子做好"
               description="从 2008 年成立第一家县级种子站，到今天覆盖黄淮海、东北与长江中下游的育繁推一体化企业，我们始终围绕一个朴素的目标——让种植户少走弯路。"
             />

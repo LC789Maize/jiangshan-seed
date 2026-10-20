@@ -35,7 +35,7 @@ export function getAllNews(): NewsItem[] {
       date: data.date as string,
       category: data.category as string,
       cover: data.cover as string,
-      author: (data.author as string) || "青禾种业",
+      author: (data.author as string) || "江山科技",
     };
   });
   return items.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -52,7 +52,7 @@ export async function getNews(slug: string): Promise<NewsItem> {
     date: data.date as string,
     category: data.category as string,
     cover: data.cover as string,
-    author: (data.author as string) || "青禾种业",
+    author: (data.author as string) || "江山科技",
     content: processed.toString(),
   };
 }

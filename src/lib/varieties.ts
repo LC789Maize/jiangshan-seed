@@ -33,8 +33,8 @@ export const crops: Crop[] = ["玉米", "水稻", "小麦", "大豆"];
 
 export const varieties: Variety[] = [
   {
-    slug: "qinghe-958",
-    name: "青禾 958",
+    slug: "liangchun-789",
+    name: "良纯 789",
     crop: "玉米",
     badge: "主推品种",
     tagline: "耐密抗倒，稳产广适的中早熟玉米新品种",
@@ -59,8 +59,8 @@ export const varieties: Variety[] = [
     featured: true,
   },
   {
-    slug: "qinghe-168",
-    name: "青禾 168",
+    slug: "liangchun-168",
+    name: "良纯 168",
     crop: "玉米",
     tagline: "早熟脱水快，适合机收籽粒的春播玉米",
     image: "/images/varieties/corn-168.jpg",
@@ -84,8 +84,8 @@ export const varieties: Variety[] = [
     featured: true,
   },
   {
-    slug: "qinghe-rice-1",
-    name: "青禾稻 1 号",
+    slug: "liangchun-rice-1",
+    name: "良纯稻 1 号",
     crop: "水稻",
     badge: "常规粳稻",
     tagline: "抗倒高产，米质达国标二级的粳稻品种",
@@ -110,8 +110,8 @@ export const varieties: Variety[] = [
     featured: true,
   },
   {
-    slug: "qinghe-aroma-rice",
-    name: "青禾香稻",
+    slug: "liangchun-aroma-rice",
+    name: "良纯香稻",
     crop: "水稻",
     tagline: "香味浓郁，适合优质米开发的香稻品种",
     image: "/images/varieties/rice-aroma.jpg",
@@ -134,8 +134,8 @@ export const varieties: Variety[] = [
     packing: "1 公斤/袋、2.5 公斤/袋",
   },
   {
-    slug: "qinghe-wheat-12",
-    name: "青禾麦 12",
+    slug: "liangchun-wheat-12",
+    name: "良纯麦 12",
     crop: "小麦",
     tagline: "冬性抗寒，穗大粒饱的高产小麦品种",
     image: "/images/varieties/wheat-12.jpg",
@@ -159,8 +159,8 @@ export const varieties: Variety[] = [
     featured: true,
   },
   {
-    slug: "qinghe-soybean-7",
-    name: "青禾豆 7",
+    slug: "liangchun-soybean-7",
+    name: "良纯豆 7",
     crop: "大豆",
     tagline: "耐密耐荫，适合玉米大豆带状复合种植",
     image: "/images/varieties/soybean-7.jpg",

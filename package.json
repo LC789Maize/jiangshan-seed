@@ -1,8 +1,8 @@
 {
-  "name": "qinghe-seed-website",
+  "name": "jiangshan-seed-website",
   "version": "1.0.0",
   "private": true,
-  "description": "青禾种业企业官网 - 品种展示型静态站点（Next.js + Tailwind CSS）",
+  "description": "江山科技企业官网 - 品种展示型静态站点（Next.js + Tailwind CSS）",
   "scripts": {
     "dev": "next dev",
     "build": "next build && tsx scripts/postbuild.ts",

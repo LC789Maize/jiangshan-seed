@@ -6,12 +6,12 @@ import path from "node:path";
  * 直接扫描 out/ 下生成的 HTML 文件，新增页面无需改动脚本。
  *
  * 环境变量：
- *   NEXT_PUBLIC_SITE_URL  站点完整地址（含子路径），如 https://lc789maize.github.io/qinghe-seed
+ *   NEXT_PUBLIC_SITE_URL  站点完整地址（含子路径），如 https://lc789maize.github.io/jiangshan-seed
  * 说明：basePath 由 next.config.ts 应用，导出目录中页面路径不含 basePath，
  *      因此这里统一拼上 SITE_URL（其本身已包含子路径）。
  */
 const OUT_DIR = path.join(process.cwd(), "out");
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://lc789maize.github.io/qinghe-seed").replace(/\/$/, "");
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://lc789maize.github.io/jiangshan-seed").replace(/\/$/, "");
 
 function walk(dir: string, acc: string[] = []): string[] {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {

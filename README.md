@@ -1,4 +1,4 @@
-# 青禾种业 · 企业官网
+# 江山科技 · 企业官网
 
 面向种业企业的**品种展示型**官网模板：只做品种/商品展示与品牌介绍，**不含购物车、支付、会员与后台**。
 基于 [TencentEdgeOne/enterprise-website-template](https://github.com/TencentEdgeOne/enterprise-website-template)（MIT）的工程结构改造，重写为农业风格的静态站点。
@@ -46,12 +46,12 @@ npm start          # 本地预览 out/
 
 ```ts
 export const site = {
-  name: "青禾种业",
+  name: "江山科技",
   phone: "400-800-0000",
   phoneHref: "tel:4008000000",
-  email: "service@qinghe-seed.com",
+  email: "service@jiangshan-seed.com",
   address: "山东省济南市历城区种业科技园 6 号楼",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://lc789maize.github.io/qinghe-seed",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://lc789maize.github.io/jiangshan-seed",
   // ...
 };
 ```
@@ -64,8 +64,8 @@ export const site = {
 
 ```ts
 {
-  slug: "qinghe-958",          // URL：/varieties/qinghe-958/
-  name: "青禾 958",
+  slug: "liangchun-789",          // URL：/varieties/liangchun-789/
+  name: "良纯 789",
   crop: "玉米",                // 玉米 | 水稻 | 小麦 | 大豆
   badge: "主推品种",            // 可选角标
   tagline: "耐密抗倒……",
@@ -94,7 +94,7 @@ summary: "列表页摘要"
 date: "2026-09-22"
 category: "品种动态"   # 品种动态 / 栽培技术 / 公司动态
 cover: "/images/news/news-corn.jpg"
-author: "青禾种业"
+author: "江山科技"
 ---
 
 正文用 Markdown，支持 ## 标题、列表、引用、图片。
@@ -149,7 +149,7 @@ Gitee Pages 对新仓库需要**实名认证 + 人工审核**，且各账号政�
 
 ```bash
 NEXT_PUBLIC_BASE_PATH="" NEXT_PUBLIC_SITE_URL="https://your-domain.com" npm run build
-rsync -av --delete out/ user@server:/var/www/qinghe-seed/
+rsync -av --delete out/ user@server:/var/www/jiangshan-seed/
 ```
 
 Nginx 片段：
@@ -158,7 +158,7 @@ Nginx 片段：
 server {
     listen 443 ssl;
     server_name your-domain.com;
-    root /var/www/qinghe-seed;
+    root /var/www/jiangshan-seed;
     index index.html;
 
     gzip on;

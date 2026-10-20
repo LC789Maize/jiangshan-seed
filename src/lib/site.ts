@@ -9,7 +9,7 @@ export const site = {
     "江山科技专注玉米、小麦、水稻、大豆等农作物优良品种的选育、繁育与推广，为种植户提供适配不同生态区的品种与配套栽培方案。",
   // CI 构建时会注入 NEXT_PUBLIC_SITE_URL；本地开发用下面这个占位值。
   // 仓库改名后无需改这里，GitHub Actions 会自动按新仓库名注入。
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://lc789maize.github.io/qinghe-seed",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://lc789maize.github.io/jiangshan-seed",
   phone: "400-800-0000",
   phoneHref: "tel:4008000000",
   mobile: "138-0000-0000",
