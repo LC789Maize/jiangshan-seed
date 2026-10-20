@@ -1,0 +1,60 @@
+name: Mirror to Gitee (optional)
+
+# 可选：把源码与构建产物同步到 Gitee，作为国内访问镜像。
+# 默认不自动运行——只在手动触发时执行，避免未配置 Secrets 时把 CI 弄红。
+#
+# 前置：
+#   1. Gitee 建好同名仓库（Pages 需实名 + 人工审核，各账号政策不同）
+#   2. 本仓库 Secrets 配置 GITEE_USERNAME / GITEE_TOKEN / GITEE_REPO
+#   3. 手动运行本工作流，然后在 Gitee 仓库开启 Pages，分支选 pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secrets
+        run: |
+          if [ -z "${{ secrets.GITEE_TOKEN }}" ]; then
+            echo "::error::缺少 GITEE_TOKEN，请先在 Settings → Secrets 配置"
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        env:
+          # Gitee Pages 地址规则：https://<username>.gitee.io/<repo>/
+          NEXT_PUBLIC_BASE_PATH: /${{ secrets.GITEE_REPO }}
+          NEXT_PUBLIC_SITE_URL: https://${{ secrets.GITEE_USERNAME }}.gitee.io/${{ secrets.GITEE_REPO }}
+        run: npm run build
+
+      - name: Disable Jekyll
+        run: touch out/.nojekyll
+
+      - name: Push source to Gitee
+        run: |
+          git remote add gitee https://${{ secrets.GITEE_USERNAME }}:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_USERNAME }}/${{ secrets.GITEE_REPO }}.git
+          git push gitee HEAD:main --force
+
+      - name: Push built output to Gitee pages branch
+        run: |
+          cd out
+          git init -b pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "build: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push --force https://${{ secrets.GITEE_USERNAME }}:${{ secrets.GITEE_TOKEN }}@gitee.com/${{ secrets.GITEE_USERNAME }}/${{ secrets.GITEE_REPO }}.git pages:pages

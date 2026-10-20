@@ -1,0 +1,30 @@
+{
+  "name": "qinghe-seed-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "青禾种业企业官网 - 品种展示型静态站点（Next.js + Tailwind CSS）",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && tsx scripts/postbuild.ts",
+    "start": "npx serve out",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "next": "15.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.20.2",
+    "typescript": "^5.3.3"
+  }
+}

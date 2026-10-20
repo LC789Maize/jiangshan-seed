@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream text-ink antialiased;
+    font-feature-settings: "kern";
+  }
+
+  ::selection {
+    @apply bg-seed-200 text-seed-900;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold tracking-tight text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    @apply leading-7;
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-seed-700 text-white hover:bg-seed-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-seed-700;
+  }
+
+  .btn-ghost {
+    @apply btn border border-line bg-white/70 text-ink hover:border-seed-300 hover:text-seed-700;
+  }
+
+  .btn-light {
+    @apply btn bg-white/95 text-seed-800 hover:bg-white;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-seed-600;
+  }
+
+  .card {
+    @apply overflow-hidden rounded-2xl border border-line bg-white transition-shadow duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-soft hover:border-seed-200;
+  }
+
+  .field-label {
+    @apply mb-2 block text-xs font-semibold uppercase tracking-wider text-seed-700;
+  }
+
+  .field-value {
+    @apply text-sm leading-6 text-ink/80;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .grain-bg {
+    background-image: radial-gradient(rgba(63, 111, 58, 0.09) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .text-shadow-hero {
+    text-shadow: 0 2px 24px rgba(10, 20, 12, 0.35);
+  }
+}
+
+/* 新闻正文排版 */
+.article-body {
+  @apply text-[15px] leading-8 text-ink/85 sm:text-base;
+}
+.article-body h2 {
+  @apply mt-10 mb-3 text-xl font-semibold text-ink sm:text-2xl;
+}
+.article-body h3 {
+  @apply mt-8 mb-2 text-lg font-semibold text-ink;
+}
+.article-body p {
+  @apply mb-5;
+}
+.article-body ul {
+  @apply mb-5 list-disc space-y-2 pl-6;
+}
+.article-body ol {
+  @apply mb-5 list-decimal space-y-2 pl-6;
+}
+.article-body blockquote {
+  @apply my-6 border-l-4 border-seed-300 bg-seed-50 px-5 py-3 text-ink/75;
+}
+.article-body a {
+  @apply text-seed-700 underline decoration-seed-300 underline-offset-4;
+}
+.article-body img {
+  @apply my-6 rounded-xl;
+}
