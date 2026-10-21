@@ -46,18 +46,20 @@ const advantages = [
 ];
 
 const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
+  const spotlight = varieties.find((v) => v.slug === "liangchun-789");
+  const gridFeatured = featured.filter((v) => v.slug !== "liangchun-789");
   return (
     <Layout
       title={`${site.name} - ${site.slogan}｜冀中南玉米小麦良种`}
       description={site.description}
       absoluteTitle
-      image="/images/hero/hero-field.jpg"
+      image="/images/hero/hero-field.webp"
     >
       {/* ================= Hero ================= */}
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img
-            src={asset("/images/hero/hero-field.jpg")}
+            src={asset("/images/hero/hero-field.webp")}
             alt="冀中南高标准农田航拍"
             width={2000}
             height={855}
@@ -120,6 +122,83 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
         </div>
       </section>
 
+      {/* ================= 主推大单品 ================= */}
+      {spotlight && (
+        <section className="container-page pt-16 sm:pt-20 lg:pt-24" aria-labelledby="spotlight">
+          <div className="card lg:grid lg:grid-cols-2">
+            <div className="relative min-h-60 overflow-hidden sm:min-h-72 lg:min-h-full">
+              <img
+                src={asset(spotlight.image)}
+                alt={`${spotlight.name}（${spotlight.crop}）田间长势`}
+                width={1000}
+                height={750}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-seed-950/35 via-transparent to-transparent"
+                aria-hidden="true"
+              />
+              {spotlight.badge && (
+                <span className="absolute left-5 top-5 rounded-full bg-wheat-400 px-3.5 py-1.5 text-xs font-semibold text-white shadow-md ring-1 ring-black/5">
+                  {spotlight.badge}
+                </span>
+              )}
+              <span className="absolute bottom-5 left-5 rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium text-seed-800 backdrop-blur">
+                适宜区域：{spotlight.region}
+              </span>
+            </div>
+
+            <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+              <p className="eyebrow">
+                <span className="h-px w-6 bg-wheat-400" aria-hidden="true" />
+                主推大单品
+              </p>
+              <h2
+                id="spotlight"
+                className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl"
+              >
+                {spotlight.name}
+                <span className="ml-3 align-middle text-base font-medium text-seed-600">
+                  {spotlight.crop}
+                </span>
+              </h2>
+              <p className="mt-3 text-base leading-7 text-ink/65">{spotlight.tagline}</p>
+
+              <ul className="mt-6 space-y-2.5">
+                {spotlight.highlights.map((h) => (
+                  <li key={h} className="flex items-start gap-2.5 text-sm leading-6 text-ink/75">
+                    <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-seed-600" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+
+              <dl className="mt-7 grid grid-cols-2 gap-3 text-xs">
+                <div className="rounded-xl bg-seed-50 px-4 py-3">
+                  <dt className="text-ink/45">生育期</dt>
+                  <dd className="mt-1 text-sm font-semibold text-ink/85">{spotlight.growthPeriod}</dd>
+                </div>
+                <div className="rounded-xl bg-seed-50 px-4 py-3">
+                  <dt className="text-ink/45">审定 / 报审</dt>
+                  <dd className="mt-1 text-sm font-semibold text-ink/85">{spotlight.approvalNo}</dd>
+                </div>
+              </dl>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href={`/varieties/${spotlight.slug}`} className="btn-primary group">
+                  查看品种详情
+                  <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+                <a href={site.phoneHref} className="btn-ghost">
+                  电话咨询 {site.phone}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ================= 品种推荐 ================= */}
       <section className="container-page py-16 sm:py-20 lg:py-24" aria-labelledby="featured-varieties">
         <SectionHeading
@@ -138,7 +217,7 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
         />
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          {featured.map((v, i) => (
+          {gridFeatured.map((v, i) => (
             <VarietyCard key={v.slug} variety={v} priority={i === 0} />
           ))}
         </div>
@@ -164,7 +243,7 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
           <div className="relative order-2 lg:order-1">
             <div className="overflow-hidden rounded-3xl">
               <img
-                src={asset("/images/about/company.jpg")}
+                src={asset("/images/about/company.webp")}
                 alt="江山科技科研人员在田间观察玉米长势"
                 width={800}
                 height={600}
@@ -172,7 +251,7 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -right-2 hidden w-56 rounded-2xl border border-line bg-cream p-5 shadow-soft sm:block lg:-right-6">
+            <div className="absolute -bottom-6 -right-2 hidden w-56 rounded-2xl border border-line bg-cream p-5 shadow-lift sm:block lg:-right-6">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-seed-600">
                 自主品系
               </p>
@@ -222,14 +301,11 @@ const HomePage: NextPage<HomeProps> = ({ featured, news }) => {
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {advantages.map((a, i) => (
-            <div
-              key={a.title}
-              className="relative rounded-2xl border border-line bg-white p-6 transition-colors hover:border-seed-200"
-            >
+            <div key={a.title} className="card card-hover group relative p-6">
               <span className="absolute right-5 top-5 text-xs font-semibold text-ink/15">
                 0{i + 1}
               </span>
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-seed-50 text-seed-700">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-seed-50 text-seed-700 transition-colors group-hover:bg-seed-100">
                 <a.icon className="h-6 w-6" />
               </span>
               <h3 className="mt-5 text-base font-semibold text-ink">{a.title}</h3>

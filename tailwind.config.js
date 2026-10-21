@@ -55,6 +55,8 @@ module.exports = {
       },
       boxShadow: {
         soft: "0 18px 40px -24px rgba(29, 42, 32, 0.35)",
+        card: "0 1px 2px rgba(29, 42, 32, 0.05), 0 10px 28px -14px rgba(29, 42, 32, 0.16)",
+        lift: "0 4px 10px rgba(29, 42, 32, 0.06), 0 24px 48px -18px rgba(29, 42, 32, 0.30)",
       },
     },
   },

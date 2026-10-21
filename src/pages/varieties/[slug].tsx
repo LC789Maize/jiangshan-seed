@@ -85,19 +85,19 @@ const VarietyDetailPage: NextPage<Props> = ({ variety, related }) => {
       <section className="bg-white">
         <div className="container-page grid gap-10 py-10 sm:py-14 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-6">
-            <div className="overflow-hidden rounded-3xl border border-line">
+            <div className="overflow-hidden rounded-3xl border border-line shadow-card">
               <img
                 src={asset(variety.image)}
                 alt={`${variety.name}（${variety.crop}）`}
                 width={800}
                 height={600}
                 fetchPriority="high"
-                className="h-full w-full object-cover"
+                className="aspect-[4/3] w-full object-cover"
               />
             </div>
             <div className="mt-4 grid grid-cols-3 gap-3">
               {specs.slice(0, 3).map((s) => (
-                <div key={s.label} className="rounded-xl border border-line bg-cream/60 px-3 py-3">
+                <div key={s.label} className="rounded-xl border border-line bg-white px-3 py-3 shadow-sm">
                   <p className="text-[10px] uppercase tracking-wide text-ink/40">{s.label}</p>
                   <p className="mt-1 text-xs font-semibold leading-5 text-ink/80">{s.value}</p>
                 </div>
@@ -234,6 +234,19 @@ const VarietyDetailPage: NextPage<Props> = ({ variety, related }) => {
           </div>
         </section>
       )}
+
+      {/* 移动端底部咨询条 */}
+      <div className="h-16 lg:hidden" aria-hidden="true" />
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 px-4 py-3 shadow-[0_-8px_24px_-12px_rgba(29,42,32,0.25)] backdrop-blur lg:hidden">
+        <div className="mx-auto flex max-w-xl gap-3">
+          <a href={site.phoneHref} className="btn-primary flex-1 !py-2.5">
+            电话咨询
+          </a>
+          <Link href="/contact" className="btn-ghost flex-1 !py-2.5">
+            索取品种资料
+          </Link>
+        </div>
+      </div>
     </Layout>
   );
 };

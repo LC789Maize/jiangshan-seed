@@ -3,7 +3,7 @@ title: "夏玉米中后期管理：防倒伏、防热害、防病虫"
 summary: "大喇叭口期到灌浆期是夏玉米产量形成的关键阶段。本文整理三项重点管理措施，供冀中南地区种植户参考。"
 date: "2026-07-12"
 category: "栽培技术"
-cover: "/images/news/news-corn.jpg"
+cover: "/images/news/news-corn.webp"
 author: "江山科技 农技服务部"
 ---
 

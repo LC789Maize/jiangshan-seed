@@ -35,10 +35,10 @@ const VarietiesPage: NextPage<Props> = ({ all }) => {
     <Layout
       title="品种中心"
       description={`${site.name}品种列表：粮用玉米、青贮玉米、早熟小麦。查看每个品种的生育期、审定或备案编号、适宜区域、产量表现与栽培要点。`}
-      image="/images/varieties/liangchun-789.jpg"
+      image="/images/varieties/liangchun-789.webp"
     >
       {/* 页头 */}
-      <section className="border-b border-line bg-white">
+      <section className="border-b border-line bg-gradient-to-b from-white to-seed-50/70">
         <div className="container-page py-12 sm:py-16">
           <p className="eyebrow">
             <span className="h-px w-6 bg-wheat-400" aria-hidden="true" />
@@ -84,7 +84,11 @@ const VarietiesPage: NextPage<Props> = ({ all }) => {
 
       {/* 筛选 */}
       <section className="container-page py-8 sm:py-10">
-        <div className="no-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1 pb-1" role="tablist" aria-label="按作物筛选">
+        <div
+          className="no-scrollbar sticky top-[76px] z-30 -mx-1 flex gap-2 overflow-x-auto rounded-2xl border border-line/70 bg-cream/90 p-2 shadow-sm backdrop-blur"
+          role="tablist"
+          aria-label="按作物筛选"
+        >
           {tabs.map((t) => {
             const count = t === "全部" ? all.length : all.filter((v) => v.crop === t).length;
             const active = filter === t;

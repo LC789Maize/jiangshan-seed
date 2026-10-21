@@ -69,7 +69,7 @@ export const site = {
   crop: "玉米",                // 玉米 | 水稻 | 小麦 | 大豆
   badge: "主推品种",            // 可选角标
   tagline: "耐密抗倒……",
-  image: "/images/varieties/corn-958.jpg",
+  image: "/images/varieties/corn-958.webp",
   growthPeriod: "夏播 96–100 天",
   approvalNo: "国审玉 20240000",
   region: "黄淮海夏玉米区",
@@ -93,7 +93,7 @@ title: "标题"
 summary: "列表页摘要"
 date: "2026-09-22"
 category: "品种动态"   # 品种动态 / 栽培技术 / 公司动态
-cover: "/images/news/news-corn.jpg"
+cover: "/images/news/news-corn.webp"
 author: "江山科技"
 ---
 
@@ -175,12 +175,12 @@ server {
 
 ## 联系表单
 
-纯静态站点没有后端。`src/pages/contact/index.tsx` 已预留两种行为：
+纯静态站点没有后端。`src/pages/contact/index.tsx` 的提交行为：
 
 - 配置了 `NEXT_PUBLIC_FORM_ENDPOINT` → `POST` JSON 到该地址（表单服务、云函数、企微/钉钉机器人中转均可）
-- 未配置 → 前端提示提交成功并引导电话联系（**不会真的发出去**，上线前请务必接入，或把表单换成「电话 + 微信二维码」）
+- 未配置 → 默认提交到 FormSubmit 的 ajax 接口（`https://formsubmit.co/ajax/bbw8000000@gmail.com`），留言转发到该邮箱；提交失败会明确提示访客改走电话，不再「假成功」
 
-推荐零成本方案：腾讯云函数 SCF / 阿里云函数计算 + 邮件或企微机器人；也可用 Formspree、Getform 等表单服务。
+⚠️ FormSubmit 首次使用需要激活：第一次有人提交后，邮箱主人会收到 FormSubmit 的激活邮件，点击确认后接口才正式生效。如需换接收邮箱，改 `FORM_ENDPOINT` 的回退地址或设置环境变量。
 
 ## SEO 清单
 

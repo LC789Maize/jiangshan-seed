@@ -5,6 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 88px;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -41,7 +42,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-seed-700 text-white hover:bg-seed-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-seed-700;
+    @apply btn bg-seed-700 text-white shadow-sm hover:bg-seed-800 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-seed-700;
   }
 
   .btn-ghost {
@@ -57,11 +58,11 @@
   }
 
   .card {
-    @apply overflow-hidden rounded-2xl border border-line bg-white transition-shadow duration-300;
+    @apply overflow-hidden rounded-2xl border border-line bg-white shadow-card transition duration-300;
   }
 
   .card-hover {
-    @apply hover:shadow-soft hover:border-seed-200;
+    @apply hover:-translate-y-1 hover:border-seed-200 hover:shadow-lift;
   }
 
   .field-label {

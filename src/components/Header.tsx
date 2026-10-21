@@ -77,13 +77,32 @@ export function Header() {
     href === "/" ? router.pathname === "/" : router.pathname.startsWith(href);
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
-        scrolled
-          ? "border-line/80 bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.02)]"
-          : "border-transparent bg-cream/80 backdrop-blur"
-      }`}
-    >
+    <>
+      {/* 顶部信息条（随页面滚走，不吸顶） */}
+      <div className="hidden bg-seed-900 text-white/75 md:block">
+        <div className="container-page flex h-9 items-center justify-between text-xs">
+          <p className="tracking-wide text-white/60">
+            {site.legalName} · {site.slogan}
+          </p>
+          <div className="flex items-center gap-5">
+            <span className="hidden lg:inline text-white/50">{site.workTime}</span>
+            <a href={`mailto:${site.email}`} className="transition-colors hover:text-white">
+              {site.email}
+            </a>
+            <a href={site.phoneHref} className="font-semibold text-wheat-300 transition-colors hover:text-wheat-200">
+              服务热线 {site.phone}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <header
+        className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
+          scrolled
+            ? "border-line/80 bg-cream/95 shadow-[0_8px_30px_-12px_rgba(29,42,32,0.18)] backdrop-blur-md"
+            : "border-transparent bg-cream/80 backdrop-blur"
+        }`}
+      >
       <div className="container-page flex h-[68px] items-center justify-between gap-4">
         <Logo />
 
@@ -95,7 +114,7 @@ export function Header() {
               aria-current={isActive(item.href) ? "page" : undefined}
               className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 isActive(item.href)
-                  ? "text-seed-800"
+                  ? "bg-seed-100/80 text-seed-800"
                   : "text-ink/70 hover:bg-seed-50 hover:text-seed-800"
               }`}
             >
@@ -179,5 +198,6 @@ export function Header() {
         </nav>
       </div>
     </header>
+    </>
   );
 }

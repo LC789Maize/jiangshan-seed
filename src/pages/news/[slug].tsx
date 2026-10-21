@@ -70,7 +70,7 @@ const NewsDetailPage: NextPage<Props> = ({ item, related }) => {
         </header>
 
         <div className="container-page">
-          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-2xl">
+          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-3xl border border-line shadow-card">
             <img
               src={asset(item.cover)}
               alt={item.title}

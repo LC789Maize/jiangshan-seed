@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
+import { varieties } from "@/lib/varieties";
 import { Logo } from "./Header";
 
 export function Footer() {
+  const featured = varieties.filter((v) => v.featured);
   return (
     <footer className="mt-24 bg-seed-900 text-white/75">
-      <div className="container-page grid gap-12 py-16 md:grid-cols-12 md:py-20">
-        <div className="md:col-span-5">
+      <div className="container-page grid gap-12 py-16 sm:grid-cols-2 md:py-20 lg:grid-cols-12">
+        <div className="lg:col-span-4">
           <Logo light />
           <p className="mt-6 max-w-sm text-sm leading-7 text-white/60">
             {site.description}
@@ -14,7 +16,7 @@ export function Footer() {
           <p className="mt-6 text-sm font-medium text-wheat-300">{site.slogan}</p>
         </div>
 
-        <div className="md:col-span-3">
+        <div className="lg:col-span-2">
           <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
             网站导航
           </h3>
@@ -29,7 +31,26 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-4">
+        <div className="lg:col-span-3">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
+            主推品种
+          </h3>
+          <ul className="mt-5 space-y-3 text-sm">
+            {featured.map((v) => (
+              <li key={v.slug}>
+                <Link
+                  href={`/varieties/${v.slug}`}
+                  className="transition-colors hover:text-white"
+                >
+                  {v.name}
+                  <span className="ml-2 text-xs text-white/35">{v.crop}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="lg:col-span-3">
           <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
             联系我们
           </h3>
