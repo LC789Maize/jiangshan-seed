@@ -5,35 +5,48 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ClockIcon, MailIcon, PhoneIcon, PinIcon, CheckIcon } from "@/components/Icons";
 import { site } from "@/lib/site";
 
+/**
+ * 表单提交端点：优先使用环境变量 NEXT_PUBLIC_FORM_ENDPOINT；
+ * 未配置时回退到 FormSubmit 的 ajax 接口，留言直接转发到公司邮箱。
+ * 注意：FormSubmit 首次使用时，邮箱主人需点击其发出的激活邮件确认，
+ * 激活前提交会返回失败，下面的错误提示会引导访客改走电话。
+ */
+const FORM_ENDPOINT =
+  process.env.NEXT_PUBLIC_FORM_ENDPOINT ||
+  "https://formsubmit.co/ajax/bbw8000000@gmail.com";
+
 const ContactPage: NextPage = () => {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  /**
-   * 纯静态站点没有后端。这里的提交逻辑做两件事：
-   * 1) 若在 site.ts 配置了 FORM_ENDPOINT，则 POST 到该地址（如表单服务/云函数）；
-   * 2) 否则生成一条留言内容，引导用户通过电话或微信联系，不丢失线索。
-   * 详见 README「联系表单接入」。
-   */
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const endpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
 
     setSubmitting(true);
+    setError(null);
     try {
-      if (endpoint) {
-        await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(Object.fromEntries(data.entries())),
-        });
-      } else {
-        await new Promise((r) => setTimeout(r, 400));
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...Object.fromEntries(data.entries()),
+          _subject: `官网留言：${data.get("name") || "访客"}（品种咨询）`,
+          _template: "table",
+        }),
+      });
+      const json = (await res.json().catch(() => null)) as { success?: string } | null;
+      if (!res.ok || !json || String(json.success) !== "true") {
+        throw new Error("submit-failed");
       }
       setSent(true);
       form.reset();
+    } catch {
+      setError(
+        "留言没有提交成功，可能是网络问题或邮箱接收端尚未激活。请稍后重试，或直接拨打服务热线与我们联系。"
+      );
     } finally {
       setSubmitting(false);
     }
@@ -50,7 +63,7 @@ const ContactPage: NextPage = () => {
     <Layout
       title="联系我们"
       description={`联系${site.name}：服务热线 ${site.phone}，地址 ${site.address}。选种咨询、品种资料索取、区域合作，欢迎来电或留言。`}
-      image="/images/news/news-base.jpg"
+      image="/images/news/news-base.webp"
     >
       <section className="border-b border-line bg-white">
         <div className="container-page py-12 sm:py-16">
@@ -122,7 +135,7 @@ const ContactPage: NextPage = () => {
 
           {/* 表单 */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl border border-line bg-white p-6 sm:p-8">
+            <div className="rounded-3xl border border-line bg-white p-6 shadow-card sm:p-8">
               <SectionHeading
                 eyebrow="在线留言"
                 title="留下您的需求"
@@ -135,9 +148,9 @@ const ContactPage: NextPage = () => {
                     <CheckIcon className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="font-semibold text-seed-900">留言已记录</p>
+                    <p className="font-semibold text-seed-900">留言已提交</p>
                     <p className="mt-1 text-sm leading-6 text-seed-800/70">
-                      感谢您的信任，我们会尽快与您联系。急需答复可直接拨打{" "}
+                      您的留言已发送到我们的邮箱，感谢信任，我们会尽快与您联系。急需答复可直接拨打{" "}
                       <a href={site.phoneHref} className="font-semibold underline underline-offset-4">
                         {site.phone}
                       </a>
@@ -164,7 +177,7 @@ const ContactPage: NextPage = () => {
                       required
                       autoComplete="name"
                       placeholder="如：张师傅"
-                      className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white"
+                      className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-seed-500/10"
                     />
                   </div>
                   <div>
@@ -179,7 +192,7 @@ const ContactPage: NextPage = () => {
                       autoComplete="tel"
                       inputMode="tel"
                       placeholder="手机号或固定电话"
-                      className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white"
+                      className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-seed-500/10"
                     />
                   </div>
                   <div>
@@ -190,7 +203,7 @@ const ContactPage: NextPage = () => {
                       id="region"
                       name="region"
                       placeholder="如：石家庄市栾城区"
-                      className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white"
+                      className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-seed-500/10"
                     />
                   </div>
                   <div>
@@ -201,7 +214,7 @@ const ContactPage: NextPage = () => {
                       id="crop"
                       name="crop"
                       defaultValue=""
-                      className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm text-ink outline-none transition-colors focus:border-seed-400 focus:bg-white"
+                      className="h-11 w-full rounded-lg border border-line bg-cream/40 px-3.5 text-sm text-ink outline-none transition-colors focus:border-seed-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-seed-500/10"
                     >
                       <option value="">请选择</option>
                       <option value="粮用玉米">粮用玉米</option>
@@ -220,9 +233,20 @@ const ContactPage: NextPage = () => {
                       required
                       rows={5}
                       placeholder="地块面积、前茬作物、灌溉条件，或想了解的品种……"
-                      className="w-full rounded-lg border border-line bg-cream/40 px-3.5 py-3 text-sm leading-6 outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white"
+                      className="w-full rounded-lg border border-line bg-cream/40 px-3.5 py-3 text-sm leading-6 outline-none transition-colors placeholder:text-ink/30 focus:border-seed-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-seed-500/10"
                     />
                   </div>
+                  {error && (
+                    <div
+                      role="alert"
+                      className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm leading-6 text-red-800 sm:col-span-2"
+                    >
+                      {error}{" "}
+                      <a href={site.phoneHref} className="font-semibold underline underline-offset-4">
+                        {site.phone}
+                      </a>
+                    </div>
+                  )}
                   <div className="sm:col-span-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-xs leading-5 text-ink/40">
                       我们仅将信息用于品种咨询，不会对外提供。

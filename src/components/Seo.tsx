@@ -17,7 +17,7 @@ const ORG_ID = `${site.url}/#organization`;
 export default function Seo({
   title,
   description = site.description,
-  image = "/images/hero/hero-field.jpg",
+  image = "/og-default.png",
   type = "website",
   publishedTime,
   absoluteTitle = false,
@@ -81,6 +81,13 @@ export default function Seo({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={ogImage} />
+      {image.endsWith("og-default.png") && (
+        <>
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:type" content="image/png" />
+        </>
+      )}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
 
       <meta name="twitter:card" content="summary_large_image" />

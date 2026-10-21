@@ -48,10 +48,10 @@ const AboutPage: NextPage = () => {
     <Layout
       title="公司介绍"
       description={`${site.name}位于石家庄栾城区，专注特色玉米、优质小麦的选育、引种备案、种子加工与推广，适配河北中南部一年两熟种植模式。`}
-      image="/images/about/company.jpg"
+      image="/images/about/company.webp"
     >
       {/* Hero */}
-      <section className="border-b border-line bg-white">
+      <section className="border-b border-line bg-gradient-to-b from-white to-seed-50/70">
         <div className="container-page py-14 sm:py-20">
           <p className="eyebrow">
             <span className="h-px w-6 bg-wheat-400" aria-hidden="true" />
@@ -75,7 +75,7 @@ const AboutPage: NextPage = () => {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="overflow-hidden rounded-3xl">
             <img
-              src={asset("/images/about/company.jpg")}
+              src={asset("/images/about/company.webp")}
               alt="江山科技科研人员在小麦田间"
               width={800}
               height={600}
@@ -127,8 +127,8 @@ const AboutPage: NextPage = () => {
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
-              <div key={v.title} className="rounded-2xl border border-line bg-cream/60 p-6">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-seed-700 shadow-sm">
+              <div key={v.title} className="card card-hover group p-6">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-seed-50 text-seed-700 transition-colors group-hover:bg-seed-100">
                   <v.icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 text-base font-semibold">{v.title}</h3>
@@ -167,7 +167,7 @@ const AboutPage: NextPage = () => {
             </p>
             <div className="mt-6 overflow-hidden rounded-2xl">
               <img
-                src={asset("/images/about/research.jpg")}
+                src={asset("/images/about/research.webp")}
                 alt="玉米品种田间观察与考种"
                 width={800}
                 height={600}

@@ -17,11 +17,15 @@ export function VarietyCard({ variety, priority = false }: { variety: Variety; p
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         </div>
-        <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-seed-800 shadow-sm">
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-seed-950/25 to-transparent"
+          aria-hidden="true"
+        />
+        <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-seed-800 shadow-sm ring-1 ring-black/5 backdrop-blur">
           {variety.crop}
         </span>
         {variety.badge && (
-          <span className="absolute right-4 top-4 rounded-full bg-wheat-400 px-3 py-1 text-xs font-semibold text-white shadow-sm">
+          <span className="absolute right-4 top-4 rounded-full bg-wheat-400 px-3 py-1 text-xs font-semibold text-white shadow-sm ring-1 ring-black/5">
             {variety.badge}
           </span>
         )}
@@ -57,13 +61,19 @@ export function VarietyCard({ variety, priority = false }: { variety: Variety; p
           ))}
         </div>
 
-        <div className="mt-5 flex items-center justify-between pt-1">
+        <div className="mt-auto flex items-center justify-between pt-5">
           <Link
             href={`/varieties/${variety.slug}`}
             className="inline-flex items-center gap-1 text-sm font-semibold text-seed-700 hover:text-seed-600"
           >
             查看品种详情
-            <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-0.5"
+            >
               <path
                 d="M3 8h9M8.5 4l4 4-4 4"
                 stroke="currentColor"

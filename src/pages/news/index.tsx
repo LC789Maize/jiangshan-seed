@@ -21,9 +21,9 @@ const NewsPage: NextPage<Props> = ({ news }) => {
     <Layout
       title="新闻资讯"
       description={`${site.name}新闻资讯：品种审定、田间观摩、丰收测产、农技服务与公司动态。`}
-      image="/images/news/news-harvest.jpg"
+      image="/images/news/news-harvest.webp"
     >
-      <section className="border-b border-line bg-white">
+      <section className="border-b border-line bg-gradient-to-b from-white to-seed-50/70">
         <div className="container-page py-12 sm:py-16">
           <p className="eyebrow">
             <span className="h-px w-6 bg-wheat-400" aria-hidden="true" />

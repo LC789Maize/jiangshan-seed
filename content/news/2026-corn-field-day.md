@@ -3,7 +3,7 @@ title: "2026 年冀中南夏玉米观摩会在栾城举行"
 summary: "9 月中旬，来自石家庄、邢台、邯郸三地的 180 余位经销商与种植大户走进栾城试验站，现场观摩良纯七八九、紫竹竿等五紫系列玉米的田间表现。"
 date: "2026-09-22"
 category: "品种动态"
-cover: "/images/news/news-base.jpg"
+cover: "/images/news/news-base.webp"
 author: "江山科技"
 ---
 
